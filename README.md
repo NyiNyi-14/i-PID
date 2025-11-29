@@ -7,6 +7,8 @@
 
 This repostitory contains the code, data, and methods used to analyze the performance of input shaping and an intelligent PID control mechanism, and compare it to that of a similar classical PID. To do this, the code simulates the behavior of these systems, graphs them, and then tabulates multiple quantitative charateristics of their trajectories to compare directly.
 
+*Note: This project has been submitted to ACC 2026. Updates will be added as the review process progresses.*
+
 ---
 
 ## Project Structure
