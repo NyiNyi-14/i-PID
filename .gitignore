@@ -1,0 +1,30 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# VS Code settings
+.vscode/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python virtual environments
+venv/
+env/
+
+# macOS system files
+.DS_Store
+
+# Backup files
+*.bak
+*.tmp
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# MATLAB autosaves, if needed
+*.asv
