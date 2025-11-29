@@ -43,7 +43,7 @@ pip install -r requirements.txt
 Download or clone the repository:
 
 ```bash
-git clone https://github.com/NyiNyi-14/i_PID.git
+git clone https://github.com/NyiNyi-14/i-PID.git
 ```
 
 Make sure all scripts are in the same directory.
