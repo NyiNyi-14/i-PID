@@ -1,10 +1,8 @@
 # Intelligent PID Control Augmented with Input Shaping for Precision Motion Control in Dynamic Systems
 
 <p align="center">
+  <b>Transformation of classical PID control loop into iPID via unknown dynamics elimination with input shaping</b><br>
   <img src="media/iPID_block.png" width="80%">
-</p>
-<p align="center">
-  Fig: Transformation of classical PID control loop into iPID via unknown dynamics elimination with input shaping.
 </p>
 
 This repostitory contains the code, data, and methods used to analyze the performance of input shaping and an intelligent PID control mechanism, and compare it to that of a similar classical PID. To do this, the code simulates the behavior of these systems, graphs them, and then tabulates multiple quantitative charateristics of their trajectories to compare directly.
