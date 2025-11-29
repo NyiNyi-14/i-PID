@@ -1,29 +1,22 @@
 # Intelligent PID Control Augmented with Input Shaping for Precision Motion Control in Dynamic Systems
 
 <p align="center">
-  <img src="media/iPID_block.png" width="900">
+  <img src="media/iPID_block.png" width="80%">
 </p>
 <p align="center">
   Fig: Transformation of classical PID control loop into iPID via unknown dynamics elimination with input shaping.
 </p>
 
-This repostitory contains the code, data, and methods used to analyze the performance of input shaping and an intelligent PID control mechanism, and compare it to that of a similar classical PID. To do this, the code simulates the behavior of these PID systesm, graphs them, and then tabulates multiple quantitative charateristics of their trajectories to compare directly.
-
-*Note: Certain code segments have been omitted due to ongoing manuscript reviews.*
+This repostitory contains the code, data, and methods used to analyze the performance of input shaping and an intelligent PID control mechanism, and compare it to that of a similar classical PID. To do this, the code simulates the behavior of these systems, graphs them, and then tabulates multiple quantitative charateristics of their trajectories to compare directly.
 
 ---
 
 ## Project Structure
 
-   - `SpringMassSystem.py` - Characteristics and differential equation of the spring mass system.
-   - `DC_Motor.py` - Characteristics and differential equation of the DC motor.
-   <!-- - 'PID_controller.py' - Characteristics and PID calculation of PID controller. -->
-   <!-- - 'iPID_controller.py' - Characteristics and modified PID calculation of iPID controller. -->
-   <!-- - 'Closed_loop.py' - Runs simulation by solving the differential equation incorporating both system and controller in a loop that lasts a specified duration. -->
-   <!-- - 'PerformanceMetrics.py' - Calculates the quantitave properties of system trajectories. -->
-
+  - The `Libraries` folder contains custom modules for system modeling, controller design, and simulation routines used by the main scripts.
    - `run_SpringMass.py` – Simulates PID and iPID closed-loop control of a spring–mass system; generates plots and tables.  
    - `run_DC.py` – Simulates PID and iPID closed-loop control of a DC motor system; generates plots and tables.  
+  - `robustness.py` – Simulates the DC motor system under noise and feedback delay using the iPID controller with input shaping to evaluate the robustness of the proposed method.
 
 ---
 
@@ -32,7 +25,6 @@ This repostitory contains the code, data, and methods used to analyze the perfor
 - matplotlib==3.10.3
 - numpy==2.3.0
 - pandas==2.3.0
-- pyDOE==0.3.8
 - pyDOE==0.3.8
 - scipy==1.15.3
 - seaborn==0.13.2
@@ -64,8 +56,6 @@ Make sure all scripts are in the same directory.
 - Initial conditions: (x0, v0, ω, ia)  
 - Simulation settings: (duration, dt)  
 
-<!-- In the run_DC.py script, select the reference signal and data to evaluate in the tables, as described in the comment on lines 458-459, and lines 493-494. -->
-
 Set the appropriate output paths to ensure graphs are saved in the desired locations.  
 
 ### Step 3: Generate Figures and Tables
@@ -86,48 +76,50 @@ python run_DC.py
 
 ## Results
 
-![Sample Frame](media/Step_Graphs.png)
+<p align="center">
+  <b>Responses from systems to aggressive step reference.</b><br>
+  <img src="media/Step_Graphs.png" width="70%"><br>
+  (a) Spring-mass system  (b) DC motor system
+</p>
 
-- Responses from systems to aggressive step reference.
-    - (a) Spring mass system.
-    - (b) DC motor system.
+<p align="center">
+  <b>Responses from spring-mass system to normal and robust input shaped reference.</b><br>
+  <img src="media/Spring_IS_Graphs.png" width="70%"><br>
+  (a) PID controlled  (b) iPID controlled
+</p>
 
-![Sample Frame](media/Spring_IS_Graphs.png)
+<p align="center">
+  <b>Quantitative evaluation of performance of spring mass with input shaped reference.</b><br>
+  <img src="media/SM_Perofrmance.png" width="70%"><br>
+</p>
 
-- Responses from spring-mass system to normal and robust input shaped reference.
-    - (a) PID controlled.
-    - (b) iPID controlled.
+<p align="center">
+  <b>Responses from DC motor system to normal and robust input shaped reference.</b><br>
+  <img src="media/DC_IS_Graphs.png" width="70%"><br>
+  (a) PID controlled  (b) iPID controlled
+</p>
 
- ![Sample Frame](media/SM_Perofrmance.png)
+<p align="center">
+  <b>Quantitative evaluation of performance of DC motor system with input shaped reference.</b><br>
+  <img src="media/DC_Performance.png" width="70%"><br>
+</p>
 
-- Quantitative evaluation of performance of spring mass with input shaped reference.
+<p align="center">
+  <b>Responses from DC motor system with uncertain resistance to input shaped references.</b><br>
+  <img src="media/DC_IS_Sample_Graphs.png" width="80%"><br>
+  (a) PID controller with normal input shaping  (b) PID controller with robust input shaping <br>  (c) iPID controller with normal input shaping  (d) iPID controller with robust input shaping
+</p>
 
-![Sample Frame](media/DC_IS_Graphs.png)
+<p align="center">
+  <b>Quantitative evaluation of performance of DC motor system with uncertain resistance and input shaped reference.</b><br>
+  <img src="media/DC_Sample_Performance.png" width="70%"><br>
+</p>
 
-- Responses from DC motor system to normal and robust input shaped reference.
-    - (a) PID controlled.
-    - (b) iPID controlled.
- 
- ![Sample Frame](media/DC_Performance.png)
-
-- Quantitative evaluation of performance of DC motor system with input shaped reference.
-
-![Sample Frame](media/DC_IS_Sample_Graphs.png)
-
-- Responses from DC motor system with uncertain resistance to input shaped references.
-    - (a) PID controller with normal input shaping.
-    - (b) PID controller with robust input shaping.
-    - (a) iPID controller with normal input shaping.
-    - (b) iPID controller with robust input shaping.
-
- ![Sample Frame](media/DC_Sample_Performance.png)
-
-- Quantitative evaluation of performance of DC motor system with uncertain resistance and input shaped reference.
-
- ![Sample Frame](media/robustness.png)
-
-- Performance of iPID reference tracking with and without robust input shaping under a 10 ms delay:  
-    - (a) σ = 0.5, (b)** σ = 1, (c) σ = 2, (d) σ = 10  
+<p align="center">
+  <b>Robustness of iPID reference tracking with and without robust input shaping under a 10 ms delay</b><br>
+  <img src="media/robustness.png" width="80%"><br>
+  (a) σ = 0.5  (b) σ = 1  (c) σ = 2  (d) σ = 10
+</p>
 
 ---
 
